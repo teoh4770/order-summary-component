@@ -236,7 +236,7 @@ special case, button:
 
 .button[data-type="primary"]:hover,
 .button[data-type="primary"]:focus {
-  background: var(--c-primary-300);
+  background: var(--c-primary-200);
 }
 
 .button[data-type="naked"] {
