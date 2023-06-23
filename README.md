@@ -12,37 +12,33 @@ Target:
  - use the css component that comes with css itself
  - inheritance, cascade, the way css works
  - always start at the body, since it sets majority of the base style
+   
+		/* first level css: doing as much as you can at your regular css */
+		body {
+		  font-family: "Red Hat", sans-serif;
+		  font-size: var(--fs-400);
+		  font-weight: var(--fw-400);
+		  line-height: 1.6;
+		  color: var(--c-neutral-400);
+		  background: var(--c-primary-200);
+		}
+		
+		h1,
+		h2,
+		h3 {
+		  line-height: 1.1;
+		}
+		
+		h2 {
+		  font-size: var(--fs-700);
+		  color: var(--c-neutral-800);
+		}
 
-    /* first level css: doing as much as you can at your regular css */
 
-    body {
-      font-family: "Red Hat", sans-serif;
-      font-size: var(--fs-400);
-      font-weight: var(--fw-400);
-      line-height: 1.6;
-      color: var(--c-neutral-400);
-      background: var(--c-primary-200);
-    }
-
-    h1,
-    h2,
-    h3 {
-      line-height: 1.1;
-    }
-
-    h2 {
-      font-size: var(--fs-700);
-      color: var(--c-neutral-800);
-    }
-
-
-- then do composition and utility
-
+- Composition and Utility
   - composition vs utility => separation of concern (layout and other styling)
-
   - utility class allows us to take advantage of the cascade
     - this is a styling class
-
   - composition: spacing + cascade
     - sort of utility class in a way
     - this is a layout class!
