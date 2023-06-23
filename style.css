@@ -1,0 +1,252 @@
+/* 400 = normal */
+:root {
+  --c-neutral-100: hsl(0 0% 100%);
+  --c-neutral-200: hsl(225 100% 98%);
+  --c-neutral-400: hsl(224 23% 55%);
+  --c-neutral-800: hsl(223 47% 23%);
+
+  --c-primary-200: hsl(225 100% 94%);
+  --c-primary-300: hsla(245 83% 68% 1);
+  --c-primary-400: hsl(245, 75%, 52%);
+
+  --fs-300: 0.875rem;
+  --fs-400: 1rem;
+  --fs-700: 1.75rem;
+
+  --fw-400: 500;
+  --fw-700: 700;
+  --fw-900: 900;
+}
+
+/* Box Sizing Rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* reset the animations, transition and scroll behavior if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* first level css: doing as much as you can at your regular css */
+
+body {
+  font-family: "Red Hat", sans-serif;
+  font-size: var(--fs-400);
+  font-weight: var(--fw-400);
+  line-height: 1.6;
+  color: var(--c-neutral-400);
+  background: var(--c-primary-200);
+
+  /* for demo only */
+  display: grid;
+  place-items: center;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: var(--fs-700);
+  color: var(--c-neutral-800);
+  font-weight: var(--fw-900);
+}
+
+.card {
+  --gap: 2rem;
+}
+
+/* composition */
+
+/* where has specificity 0, allows us to put multiple selector */
+/* .flow > :where(:not(:first-child)) {
+  margin-top: var(--flow-spacer, 1em);
+} */
+
+.grid-flow {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.flex-row {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+/* utility */
+.padding-24 {
+  padding: 1.5rem;
+}
+.padding-48 {
+  padding: 3rem;
+}
+
+.text-neutral-400 {
+  color: var(--c-neutral-400);
+}
+
+.text-neutral-800 {
+  color: var(--c-neutral-800);
+}
+
+.bg-neutral-100 {
+  background-color: var(--c-neutral-100);
+}
+
+.bg-neutral-200 {
+  background-color: var(--c-neutral-200);
+}
+
+.text-align-left {
+  text-align: start;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-right {
+  text-align: end;
+}
+
+/* sometimes even normal paragraph becomes bold */
+.fw-bold {
+  font-weight: var(--fw-700);
+}
+
+.fw-black {
+  font-weight: var(--fw-900);
+}
+
+.br-1 {
+  border-radius: 0.5rem;
+}
+
+.br-2 {
+  border-radius: 1rem;
+}
+
+.push-right {
+  margin-left: auto;
+}
+
+a,
+.link {
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  color: var(--c-primary-400);
+  text-decoration: underline;
+  font-weight: var(--fw-700);
+}
+
+a:hover,
+a:focus,
+.link:hover,
+.link:focus {
+  color: var(--c-primary-300);
+  text-decoration: none;
+}
+
+/* block */
+.card {
+  overflow: hidden;
+  /* for demo only */
+  max-width: 450px;
+}
+
+/* 
+special case, button:
+- we don't want to have a bunch of css utility class on every single button
+- this default css setting, we can just do it on one css class directly
+*/
+.button {
+  cursor: pointer;
+  text-decoration: none;
+  border: 0;
+  border-radius: 0.5rem;
+  font-weight: var(--fw-700);
+  background: transparent;
+  padding: 1em 2em;
+}
+
+.button[data-type="primary"] {
+  color: var(--c-neutral-100);
+  background: var(--c-primary-400);
+}
+
+.button[data-type="primary"]:hover,
+.button[data-type="primary"]:focus {
+  background: var(--c-primary-300);
+}
+
+.button[data-type="naked"] {
+  color: var(--c-neutral-400);
+  padding: 0;
+}
+
+.button[data-type="naked"]:hover,
+.button[data-type="naked"]:focus {
+  color: var(--c-neutral-800);
+}
+
+/* exception */
